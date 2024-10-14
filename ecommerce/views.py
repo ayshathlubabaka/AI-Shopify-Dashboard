@@ -12,19 +12,7 @@ API_KEY = settings.SHOPIFY_API_KEY
 PASSWORD = settings.SHOPIFY_PASSWORD
 
 
-# Function to load .env variables
-def load_env(file_path):
-    with open(file_path) as f:
-        for line in f:
-            if line.startswith("#") or not line.strip():
-                continue  # Skip comments and empty lines
-            key, value = line.strip().split("=", 1)
-            os.environ[key] = value.strip('"')
 
-# base_dir = os.path.dirname(os.path.abspath(__file__))  # Get the current directory
-base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-env_path = os.path.join(base_dir, '.env')
-load_env(env_path)
 
 SHOP_URL =f"https://{API_KEY}:{PASSWORD}@{SHOP_NAME}/admin/api/2023-04"
 
